@@ -339,10 +339,68 @@ h3 {
   grid-column: span 2;
 }
 
-.project-card img {
+.project-card img,
+.media-placeholder {
   aspect-ratio: 16 / 10;
-  object-fit: cover;
   width: 100%;
+}
+
+.project-card img {
+  object-fit: cover;
+}
+
+.media-placeholder {
+  align-items: center;
+  background:
+    linear-gradient(135deg, rgba(10, 70, 61, 0.08), rgba(198, 90, 58, 0.12)),
+    #eef2eb;
+  border-bottom: 1px solid var(--line);
+  color: var(--green-dark);
+  display: flex;
+  justify-content: center;
+  min-height: 210px;
+  overflow: hidden;
+  padding: 22px;
+  position: relative;
+  text-align: center;
+}
+
+.media-placeholder::before {
+  align-items: center;
+  border: 2px solid rgba(10, 70, 61, 0.32);
+  border-radius: 999px;
+  display: flex;
+  font-size: 1.35rem;
+  font-weight: 800;
+  height: 54px;
+  justify-content: center;
+  margin-bottom: 14px;
+  width: 54px;
+}
+
+.image-placeholder::before {
+  content: "IMG";
+}
+
+.video-placeholder::before {
+  content: "PLAY";
+  font-size: 0.92rem;
+}
+
+.media-placeholder span {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-weight: 800;
+  gap: 12px;
+  max-width: 260px;
+}
+
+.media-placeholder span::after {
+  color: var(--muted);
+  content: "Replace with your real file";
+  font-size: 0.82rem;
+  font-weight: 700;
 }
 
 .project-card div {
@@ -364,6 +422,43 @@ h3 {
 
 .skills-section {
   padding-top: 24px;
+}
+
+.media-section {
+  padding-top: 24px;
+}
+
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 34px;
+}
+
+.media-item {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.media-item h3,
+.media-item p {
+  padding-left: 22px;
+  padding-right: 22px;
+}
+
+.media-item h3 {
+  margin-top: 22px;
+}
+
+.media-item p {
+  color: var(--muted);
+  margin-bottom: 22px;
+}
+
+.large-placeholder {
+  min-height: 260px;
 }
 
 .skill-groups {
@@ -483,6 +578,10 @@ h3 {
 
   .project-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .media-grid {
+    grid-template-columns: 1fr;
   }
 
   .project-card.featured {
