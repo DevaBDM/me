@@ -389,9 +389,13 @@ h3 {
   width: 100%;
 }
 
-.project-card img,
-.project-card video {
+.project-card img {
   object-fit: cover;
+}
+
+.project-card video {
+  object-fit: contain;
+  background: #000000;
 }
 
 .media-placeholder {
@@ -487,11 +491,19 @@ h3 {
   overflow: hidden;
 }
 
-.media-item img,
-.media-item video {
+.media-item img {
   width: 100%;
   aspect-ratio: 16 / 10;
   object-fit: cover;
+  border-bottom: 1px solid var(--line);
+  display: block;
+}
+
+.media-item video {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: contain;
+  background: #000000;
   border-bottom: 1px solid var(--line);
   display: block;
 }
