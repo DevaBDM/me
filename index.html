@@ -1,72 +1,181 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Odin landing page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio of Dawit Berhan, an Electrical and Computer Engineering student and self-taught full-stack developer."
+    />
+    <title>Dawit Berhan | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <div class="header">
-      <div class="navigation">
-        <div class="logo">DevaBDM</div>
-        <ul class="link">
-          <li>About me</li>
-          <li>My CV</li>
-          <li>Exit</li>
+    <header class="site-header">
+      <nav class="navigation" aria-label="Main navigation">
+        <a class="logo" href="#top">DevaBDM</a>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
-      </div>
-      <div class="container">
-        <div class="main">
-          <div class="title">I'm Dawit Berhan</div>
-          <div class="text">
-            This is website is made by Dawit Berhan. I'm a student at the
-            university of WOLDIA. I'm a electrical and computer engineer. I'm a
-            self-taught full stack developer. I'm a student of Computer
-            enigneering. I'm a student of C++.
+      </nav>
+
+      <section class="hero" id="top">
+        <div class="hero-content">
+          <p class="eyebrow">Electrical and Computer Engineering student</p>
+          <h1>Dawit Berhan builds useful digital products from idea to interface.</h1>
+          <p class="hero-copy">
+            I am a self-taught full-stack developer and engineering student at
+            Woldia University. I enjoy building web experiences, programming
+            projects, electronics systems, and games that turn learning into
+            practical results.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#work">View work</a>
+            <a class="button secondary" href="https://github.com/DevaBDM">GitHub</a>
           </div>
-          <button class="button">Contact me</button>
         </div>
-        <img class="image" src="images/me.jpg" alt="" />
-      </div>
-    </div>
-    <div class="info">
-      <div class="title">My specialities</div>
-      <div class="cards">
-        <div class="card">
-          <img class="image" src="images/electronics.jpg" alt="" />
+
+        <div class="portrait-panel" aria-label="Portrait of Dawit Berhan">
+          <img src="images/me.jpg" alt="Dawit Berhan" />
+          <div class="status-card">
+            <span class="status-dot"></span>
+            Open to internships, collaborations, and junior developer roles.
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <section class="section about-section" id="about">
+        <div class="section-heading">
+          <p class="eyebrow">About</p>
+          <h2>Engineer mindset, builder energy.</h2>
+        </div>
+        <div class="about-grid">
+          <p>
+            My foundation is Electrical and Computer Engineering, and my daily
+            practice is software. I like the mix: understanding hardware,
+            writing code, designing interfaces, and shipping things people can
+            actually use.
+          </p>
+          <div class="quick-facts">
+            <div>
+              <span>Focus</span>
+              Full-stack development
+            </div>
+            <div>
+              <span>Based in</span>
+              Ethiopia
+            </div>
+            <div>
+              <span>Learning</span>
+              C++, web systems, game development
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section work-section" id="work">
+        <div class="section-heading">
+          <p class="eyebrow">Selected work</p>
+          <h2>Four areas where I keep sharpening my craft.</h2>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card featured">
+            <img src="images/web.jpg" alt="Laptop showing web development work" />
+            <div>
+              <p class="project-type">Web Development</p>
+              <h3>Responsive portfolio and landing pages</h3>
+              <p>
+                Clean, accessible pages with strong structure, modern styling,
+                and layouts that work across phones, tablets, and desktops.
+              </p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="images/programming.jpg" alt="Programming code on a screen" />
+            <div>
+              <p class="project-type">Programming</p>
+              <h3>Problem solving with code</h3>
+              <p>
+                Practice projects in C++, JavaScript, and core programming
+                concepts, focused on writing clearer and more reliable logic.
+              </p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="images/electronics.jpg" alt="Electronic components on a desk" />
+            <div>
+              <p class="project-type">Electronics</p>
+              <h3>Hardware-informed thinking</h3>
+              <p>
+                Engineering coursework and electronics projects that connect
+                circuits, embedded ideas, and practical system design.
+              </p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="images/game.jpg" alt="Game development controller and workspace" />
+            <div>
+              <p class="project-type">Game Development</p>
+              <h3>Interactive experiments</h3>
+              <p>
+                Small game concepts and interactive ideas that build confidence
+                with user input, motion, feedback, and visual polish.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section skills-section" id="skills">
+        <div class="section-heading">
+          <p class="eyebrow">Skills</p>
+          <h2>Tools and habits I bring to projects.</h2>
+        </div>
+        <div class="skills-list" aria-label="Skills list">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+          <span>C++</span>
+          <span>Responsive Design</span>
+          <span>Git & GitHub</span>
           <span>Electronics</span>
+          <span>Problem Solving</span>
         </div>
-        <div class="card">
-          <img class="image" src="images/programming.jpg" alt="" />
-          <span>Programming</span>
+      </section>
+
+      <section class="contact-section" id="contact">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Have a project, opportunity, or idea?</h2>
+          <p>
+            I am always learning, improving, and looking for meaningful ways to
+            contribute.
+          </p>
         </div>
-        <div class="card">
-          <img class="image" src="images/web.jpg" alt="" />
-          <span>Web Development</span>
+        <div class="contact-actions">
+          <a class="button primary" href="https://github.com/DevaBDM">See GitHub</a>
+          <a class="button secondary" href="https://github.com/DevaBDM/me">Portfolio repo</a>
         </div>
-        <div class="card">
-          <img class="image" src="images/game.jpg" alt="" />
-          <span>Game Development</span>
-        </div>
-      </div>
-    </div>
-    <div class="quote">
-      <p class="text">
-        This is an inspiring quote, or a testimonial from a customer. Maybe it's
-        just filling up space, or maybe people will actually read it. Who knows?
-        All i know is that it looks nice.
-      </p>
-      <p class="text author-name">-Thor, God of Thunder</p>
-    </div>
-    <div class="sign-up">
-      <div class="content">
-        <div class="text title">Always learning</div>
-        <div class="text">Contact me if you're interested in me.</div>
-      </div>
-      <button class="button">Contact me</button>
-    </div>
-    <div class="footer">
-      <p class="text">Copyright © The Odin Project 2025</p>
-    </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Copyright &copy; 2026 Dawit Berhan. Built for GitHub Pages.</p>
+    </footer>
   </body>
 </html>
