@@ -1,6 +1,6 @@
-# Dawit Berhan Portfolio
+# My Personal Portfolio Website
 
-A responsive personal portfolio website for Dawit Berhan, hosted with GitHub Pages. It highlights academic performance, engineering background, technical skills, selected projects, and long-term career goals.
+This repository contains the source code for my personal portfolio website, hosted on GitHub Pages. It showcases my academic record, engineering projects, technical skills, and career goals.
 
 ## Live site
 

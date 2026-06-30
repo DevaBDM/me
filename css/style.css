@@ -40,7 +40,7 @@ a {
 .site-header {
   background:
     linear-gradient(rgba(247, 248, 244, 0.91), rgba(247, 248, 244, 0.98)),
-    url("../images/programming.jpg") center / cover;
+    url("../images/hero_background.jpg") center / cover;
   min-height: 94vh;
   padding: 24px clamp(20px, 6vw, 92px) 72px;
 }
@@ -452,11 +452,11 @@ h3 {
   font-weight: 700;
 }
 
-.project-card div {
+.project-content {
   padding: 24px;
 }
 
-.project-card p {
+.project-content p {
   color: var(--muted);
   margin-bottom: 0;
 }
@@ -817,6 +817,224 @@ h3 {
   margin: 0;
 }
 
+/* Scrollable Media Gallery */
+.project-media-wrapper {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+  background: #0f172a;
+  border-bottom: 1px solid var(--line);
+}
+
+.project-media-scroll {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  scrollbar-color: rgba(255, 255, 255, 0.34) transparent;
+  scrollbar-width: thin;
+  width: 100%;
+  height: 100%;
+  gap: 18px;
+  padding: 22px 54px;
+  box-sizing: border-box;
+  align-items: center;
+  -webkit-overflow-scrolling: touch;
+}
+
+.project-media-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.project-media-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.project-media-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.34);
+  border-radius: 999px;
+}
+
+.media-scroll-item {
+  flex: 0 0 clamp(240px, 42%, 380px) !important;
+  height: 100% !important;
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.project-card.featured .media-scroll-item {
+  flex-basis: clamp(250px, 32%, 390px) !important;
+}
+
+.media-scroll-item.landscape {
+  flex-basis: clamp(300px, 46%, 520px) !important;
+}
+
+.media-scroll-item.portrait-wide {
+  flex-basis: clamp(260px, 40%, 430px) !important;
+}
+
+/* Device Mockups Container */
+.device-mockup {
+  position: relative;
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  box-shadow: 0 16px 32px -18px rgba(0, 0, 0, 0.8);
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+
+.device-mockup.phone,
+.device-mockup.phone-wide,
+.device-mockup.browser {
+  aspect-ratio: auto;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  height: 100%;
+  max-height: none;
+  width: 100%;
+}
+
+.browser-header {
+  height: 24px;
+  background: #0f172a;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  gap: 6px;
+  flex-shrink: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.browser-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.browser-dot.red { background: #ef4444; }
+.browser-dot.yellow { background: #f59e0b; }
+.browser-dot.green { background: #10b981; }
+
+.device-mockup img,
+.device-mockup video {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  display: block;
+}
+
+.project-media-wrapper .media-scroll-item > img,
+.project-media-wrapper .media-scroll-item > video {
+  background: #000000;
+  border: 0;
+  display: block;
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+
+.project-media-wrapper .carousel-placeholder {
+  aspect-ratio: auto;
+  border: 0;
+  height: 100%;
+  min-height: 0;
+}
+
+.device-mockup:hover {
+  transform: scale(1.015);
+}
+
+/* Navigation Arrow Buttons */
+.gallery-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 0;
+}
+
+.gallery-nav-btn:hover {
+  background: rgba(15, 23, 42, 0.85);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.gallery-nav-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.gallery-nav-btn.prev-btn {
+  left: 16px;
+}
+
+.gallery-nav-btn.next-btn {
+  right: 16px;
+}
+
+/* Badge overlay to guide user interaction */
+.media-scroll-badge {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(11, 15, 25, 0.85);
+  color: #ffffff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  pointer-events: none;
+  z-index: 10;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: opacity 0.3s ease;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.project-media-wrapper:hover .media-scroll-badge {
+  opacity: 0.3;
+}
+
+.badge-icon {
+  animation: slideLeftRight 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes slideLeftRight {
+  0% { transform: translateX(-2px); }
+  100% { transform: translateX(2px); }
+}
+
 @media (max-width: 900px) {
   .site-header {
     min-height: auto;
@@ -903,5 +1121,22 @@ h3 {
 
   .strength-grid {
     grid-template-columns: 1fr;
+  }
+
+  .project-media-wrapper {
+    height: 220px;
+  }
+
+  .project-media-scroll {
+    gap: 14px;
+    padding: 18px 42px;
+  }
+
+  .media-scroll-item {
+    flex-basis: clamp(210px, 78%, 320px) !important;
+  }
+
+  .project-card.featured .media-scroll-item {
+    flex-basis: clamp(210px, 78%, 320px) !important;
   }
 }
