@@ -305,6 +305,49 @@ h3 {
   font-size: 1.18rem;
 }
 
+.awards-section {
+  padding-top: 24px;
+}
+
+.award-feature {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+  gap: clamp(24px, 5vw, 42px);
+  margin-top: 34px;
+  padding: clamp(24px, 5vw, 44px);
+}
+
+.award-copy p {
+  color: var(--muted);
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+}
+
+.award-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.award-highlights span {
+  background: #fff4d8;
+  border: 1px solid rgba(215, 169, 72, 0.45);
+  border-radius: 8px;
+  color: #744d08;
+  font-weight: 800;
+  padding: 10px 12px;
+}
+
+.award-media {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
 .work-section {
   max-width: none;
   padding-left: clamp(20px, 6vw, 92px);
@@ -518,14 +561,38 @@ h3 {
 
 .contact-section {
   align-items: stretch;
-  background: var(--green-dark);
+  background: linear-gradient(135deg, var(--green-dark) 0%, #062e26 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   color: #ffffff;
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(280px, 1.1fr);
-  gap: 28px;
-  margin: 24px auto 0;
+  gap: 34px;
+  margin: 40px auto 0;
   max-width: 1180px;
   padding: clamp(34px, 7vw, 62px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background accent glow */
+.contact-section::before {
+  content: "";
+  position: absolute;
+  top: -150px;
+  right: -150px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(15, 107, 87, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+  border-radius: 999px;
+  z-index: 1;
+}
+
+.contact-section > * {
+  position: relative;
+  z-index: 2;
 }
 
 .contact-section .eyebrow {
@@ -533,47 +600,169 @@ h3 {
 }
 
 .contact-section p:not(.eyebrow) {
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(255, 255, 255, 0.8);
   margin-bottom: 0;
   max-width: 620px;
+  font-size: 1.1rem;
 }
 
 .contact-info {
   display: grid;
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
 }
 
-.contact-info a {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 8px;
+/* Contact Card Base styling */
+.contact-card {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
   color: #ffffff;
-  display: block;
-  font-weight: 800;
-  overflow-wrap: anywhere;
-  padding: 13px 14px;
+  display: flex;
+  gap: 16px;
+  padding: 14px 18px;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
-.contact-info a:hover,
-.contact-info a:focus-visible {
-  background: rgba(255, 255, 255, 0.14);
+/* Specific social network styles */
+.contact-card.email {
+  --brand-color: #10b981;
+  --brand-glow: rgba(16, 185, 129, 0.15);
+}
+.contact-card.phone {
+  --brand-color: var(--gold);
+  --brand-glow: rgba(215, 169, 72, 0.18);
+}
+.contact-card.linkedin {
+  --brand-color: #0077b5;
+  --brand-glow: rgba(0, 119, 181, 0.2);
+}
+.contact-card.twitter {
+  --brand-color: #f3f4f6;
+  --brand-glow: rgba(243, 244, 246, 0.12);
+}
+.contact-card.telegram {
+  --brand-color: #229ed9;
+  --brand-glow: rgba(34, 158, 217, 0.2);
+}
+.contact-card.instagram {
+  --brand-color: #e1306c;
+  --brand-glow: rgba(225, 48, 108, 0.2);
 }
 
-.contact-info span {
-  color: var(--gold);
-  display: block;
-  font-size: 0.76rem;
-  font-weight: 800;
-  margin-bottom: 2px;
+/* Card Hover Styles */
+.contact-card:hover,
+.contact-card:focus-visible {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--brand-color);
+  box-shadow: 
+    0 12px 24px -10px rgba(0, 0, 0, 0.3),
+    0 0 16px var(--brand-glow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
+}
+
+/* Icon Container */
+.contact-icon-wrapper {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  height: 44px;
+  justify-content: center;
+  width: 44px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  flex-shrink: 0;
+}
+
+.contact-icon {
+  height: 20px;
+  width: 20px;
+}
+
+.contact-card:hover .contact-icon-wrapper,
+.contact-card:focus-visible .contact-icon-wrapper {
+  background: var(--brand-color);
+  color: #ffffff;
+  border-color: transparent;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px var(--brand-glow);
+}
+
+/* Instagram has a gradient hover for icon background */
+.contact-card.instagram:hover .contact-icon-wrapper {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+}
+
+/* X/Twitter hover background contrast check */
+.contact-card.twitter:hover .contact-icon-wrapper {
+  color: #172033;
+}
+
+/* Card Content styling */
+.contact-card-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-card-label {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
+  margin-bottom: 2px;
+  transition: color 0.3s ease;
+}
+
+.contact-card:hover .contact-card-label,
+.contact-card:focus-visible .contact-card-label {
+  color: var(--brand-color);
+}
+
+.contact-card-value {
+  font-size: 0.9rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+/* Chevron Indicator */
+.contact-arrow-wrapper {
+  align-items: center;
+  color: rgba(255, 255, 255, 0.25);
+  display: flex;
+  justify-content: center;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.contact-arrow {
+  height: 16px;
+  width: 16px;
+}
+
+.contact-card:hover .contact-arrow-wrapper,
+.contact-card:focus-visible .contact-arrow-wrapper {
+  color: #ffffff;
+  transform: translateX(3px);
 }
 
 .contact-actions {
   grid-column: 1 / -1;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 24px;
+  margin-top: 6px;
 }
 
 .contact-section .button {
-  border-color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 .contact-section .button.primary {
@@ -581,8 +770,18 @@ h3 {
   color: var(--green-dark);
 }
 
+.contact-section .button.primary:hover {
+  background: #ffffff;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.25);
+}
+
 .contact-section .button.secondary {
   color: #ffffff;
+}
+
+.contact-section .button.secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
 }
 
 .footer {
@@ -602,7 +801,8 @@ h3 {
 
   .hero,
   .about-grid,
-  .education-card {
+  .education-card,
+  .award-feature {
     grid-template-columns: 1fr;
   }
 
@@ -615,7 +815,7 @@ h3 {
   }
 
   .media-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .project-card.featured {
@@ -654,6 +854,11 @@ h3 {
   }
 
   .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .award-media,
+  .media-grid {
     grid-template-columns: 1fr;
   }
 
