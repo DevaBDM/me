@@ -1,6 +1,6 @@
 # Dawit Berhan Portfolio
 
-A responsive personal portfolio website for Dawit Berhan, hosted with GitHub Pages.
+A responsive personal portfolio website for Dawit Berhan, hosted with GitHub Pages. It highlights academic performance, engineering background, technical skills, selected projects, and long-term career goals.
 
 ## Live site
 
