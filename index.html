@@ -16,19 +16,69 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem("theme");
+          var prefersLight =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: light)").matches;
+          var theme = stored || (prefersLight ? "light" : "dark");
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      })();
+    </script>
   </head>
   <body>
     <header class="site-header">
       <nav class="navigation" aria-label="Main navigation">
         <a class="logo" href="#top">DevaBDM</a>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#work">Work</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+        <div class="nav-right">
+          <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <button
+            class="theme-toggle"
+            type="button"
+            aria-label="Toggle dark and light theme"
+            title="Toggle theme"
+          >
+            <svg
+              class="icon-moon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+            <svg
+              class="icon-sun"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="4" />
+              <path
+                d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+              />
+            </svg>
+          </button>
+        </div>
       </nav>
     </header>
 
@@ -42,14 +92,16 @@
               I build practical systems at the edge of software and hardware.
             </h1>
             <p class="hero-copy">
-              Electrical &amp; Computer Engineering graduate (Computer
-              Engineering focus) (<strong style="color: var(--text)"
-                >CGPA 3.97</strong
-              >,
-              <strong style="color: var(--text)">Batch Valedictorian</strong>.
-              Deep in C++, Qt/QML, Linux, networking, SQL, Database management,
-              and embedded systems — with offline-first apps, sensor networks,
-              and real deployments under constraint.
+              B.Sc. Electrical &amp; Computer Engineering (Computer Engineering
+              focus) —
+              <strong style="color: var(--text)">CGPA 3.97</strong>,
+              <strong style="color: var(--text)">Batch Valedictorian</strong>,
+              School Topper. About seven years of continuous C++ practice; deep
+              in Qt/QML, Linux, networking, SQL, and embedded systems.
+              Fundamentals-first engineer: I design architecture, implement
+              logic, and ship systems that work under real constraints —
+              offline-first apps, sensor networks, cross-platform tools, and
+              infrastructure built when power and networks were unreliable.
             </p>
             <div class="hero-actions">
               <a class="button primary" href="#work">View work</a>
@@ -92,47 +144,77 @@
           <div class="about-grid">
             <div>
               <p>
-                B.Sc. Electrical and Computer Engineering with a
+                I am a systems and software engineer with a B.Sc. in Electrical
+                and Computer Engineering
                 <strong style="color: var(--text)"
-                  >Computer Engineering focus</strong
-                >. C++ is my primary language — about seven years of continuous
-                practice from a serious start in Grade 11 — covering data
-                structures, algorithms, multithreading, design patterns, and
-                architecture. I know Qt/QML thoroughly (desktop and mobile apps
-                end-to-end) with SQL (Senior level Database management), Linux
-                is my daily desktop; I live in the terminal with Neovim, tmux,
-                Bash, and Git.
+                  >(Computer Engineering focus)</strong
+                >. My work sits where software, embedded systems, networking,
+                and hands-on hardware meet. C++ is my primary language — about
+                seven years of continuous practice from a serious start in Grade
+                11 (LearnCpp.com and beyond): data structures, algorithms,
+                concurrency, design patterns, and architecture. Qt/QML is a
+                framework I know thoroughly — complete desktop and mobile apps,
+                tooling, and cross-platform deployment. Linux is my daily
+                desktop; Bash, permissions, Neovim, tmux, and Git are second
+                nature. SQL is solid in practice (SQLite and MySQL).
               </p>
               <p>
-                I grew up rural, with little internet and a late first laptop.
-                My family long restricted PC and mobile use. Once I had a
-                machine, I pushed hard to close the gap — including stretches of
-                extreme focus. During conflict, when electricity and networks
-                failed, I kept building (including an improvised generator). I
-                do not back down.
+                I have loved mathematics and logic since childhood. As a kid I
+                scavenged transistors from discarded electronics and tried to
+                build basic logic gates — an early sign of the structured,
+                hands-on thinking that still drives me. I grew up rural, with
+                little internet and a late first laptop (Grade 11). Family did
+                not treat software as useful and long restricted PC and mobile
+                use. Once I had a machine, I treated time as scarce: long study
+                and experiment days, driven by a determination to close the gap.
+                During conflict, when electricity, networks, and even water
+                failed for months, I kept learning and building — including an
+                improvised generator from scavenged parts so devices and light
+                still worked.
               </p>
               <p>
-                Two paths ahead: graduate research in embedded systems,
-                electronics, robotics, and vision-related fields — and
-                deliberate full-stack web skill-building — without abandoning
-                the systems depth I already have.
+                For several years after family support ended I fully
+                self-supported education and living costs through online
+                technical work (including a browser-automation product that
+                funded a laptop, phone, and continued study). That income ended
+                when the relevant market closed in Ethiopia; I now live and
+                support my parents and sisters from savings of that period. I
+                work well alone — I can focus on coding and projects all day —
+                and as a leader: I led school groups throughout education and
+                led an 8-person embedded team at INSA. High standards,
+                structured planning, future-oriented.
+              </p>
+              <p>
+                I learned by reading docs, debugging, and shipping systems
+                before AI could generate whole applications. When I guide AI
+                agents or host local models today, it is acceleration on top of
+                fundamentals — not a substitute for them. Two deliberate paths
+                ahead: graduate research in embedded systems, electronics,
+                robotics, and vision-related fields; and full-stack web depth
+                with the same intensity I used for C++ and Linux — without
+                abandoning the systems depth I already have.
               </p>
             </div>
             <div class="quick-facts">
               <div>
                 <span>Core stack</span>
-                C++, Qt 6/QML, Linux, networking, SQL (SQlite and MySQL) &amp;
-                sockets, embedded
+                C++, Qt 6/QML, Linux, networking, SQL (SQLite and MySQL) &amp;
+                sockets, embedded firmware
               </div>
               <div>
                 <span>Also</span>
                 Web project stack (Node, React/TS, Prisma/Postgres) ·
-                Python/Java · AI-assisted coding · local Llama (growing)
+                Python/Java · AI-assisted coding · local Llama
               </div>
               <div>
                 <span>How I work</span>
-                Strong alone, proven leader in school projects · high standards
-                · structured planner
+                Independent focus · proven team leader (INSA Group 1 of 8) ·
+                high standards · structured · fundamentals first
+              </div>
+              <div>
+                <span>What I care about</span>
+                Systems that stay useful outside a demo · real constraints
+                (offline, limited power, unreliable networks)
               </div>
             </div>
           </div>
@@ -150,15 +232,22 @@
             <article class="timeline-item">
               <p class="meta">July 2026 – October 2026 · Addis Ababa</p>
               <h3>
-                Embedded Systems Trainee — INSA National Cyber Talent Summer
-                Camp
+                Group 1 Team Leader &amp; Firmware Lead — INSA National Cyber
+                Talent Summer Camp
               </h3>
               <p>
-                Selected from ~14,000 applicants (~1,200 final). Phase II:
-                designing and prototyping
-                <strong style="color: var(--text)">SLF-EWN</strong> —
-                subterranean landslide/flood early-warning network with LoRa
-                telemetry, low-power AVR nodes, and a Qt/QML dashboard.
+                Selected from ~14,000 applicants into a final cohort of ~1,200.
+                Embedded Systems department. Assigned Group 1 team leader (8
+                members: 5 beginners, 2 intermediate) and served as main
+                firmware developer and simulator for
+                <strong style="color: var(--text)">SLF-EWN</strong> — a
+                subterranean landslide/flood early-warning network. Led
+                architecture, bare-metal firmware, protocol design, Proteus
+                simulation, and Qt/QML dashboard work; tutored teammates and
+                coordinated delivery. Phase I residential training completed
+                (hardware/firmware, EDA, MCU architecture, sensors, low-power
+                design). Phase II project development runs through October 2026;
+                simulation-stage prototype delivered ahead of schedule.
               </p>
               <div
                 class="project-media-wrapper"
@@ -235,12 +324,43 @@
               </div>
             </article>
             <article class="timeline-item">
+              <p class="meta">May 11 – 14, 2026 · Woldia University</p>
+              <h3>
+                Electronics Empowerment Demonstration — Tech Transfer Week
+              </h3>
+              <p>
+                Certificate of Participation for actively participating in and
+                delivering a demonstration on “Electronics Empowerment: Basic
+                Electricity &amp; Simple Electronics” at the Students’ Community
+                Engagement Week (Theme: Digital Technology and Sustainability
+                Day). Organized by the Technology Transfer and Community Service
+                Directorate in collaboration with the Technology Institute —
+                sharing practical electronics knowledge with the wider campus
+                community.
+              </p>
+            </article>
+            <article class="timeline-item">
+              <p class="meta">November – December 2025 · Woldia University</p>
+              <h3>
+                Employability Skills &amp; Job Readiness — Woldia University
+              </h3>
+              <p>
+                Completed Woldia University training in Employability Skills and
+                Job Readiness (November 29 – December 6, 2025). Certificate
+                awarded for active participation as a trainee.
+              </p>
+            </article>
+            <article class="timeline-item">
               <p class="meta">July – September 2025 · Bishoftu Main Base</p>
               <h3>Engineering Intern — Ethiopian Air Force</h3>
               <p>
-                Fiber optic termination, fusion splicing, OTDR testing;
-                CCTV/DVR-NVR infrastructure; TCP/IP, VLANs, IPsec, and TLS in a
-                high-discipline environment.
+                Two-month communications and infrastructure internship at
+                Bishoftu Main Base. Hands-on work with fiber optic termination,
+                fusion splicing, and OTDR testing; CCTV/DVR-NVR systems; and
+                TCP/IP networking including VLANs, IPsec, and TLS — in a
+                high-discipline military communications environment with
+                exposure to operational infrastructure and hardware/software
+                security practices.
               </p>
             </article>
           </div>
@@ -352,13 +472,23 @@
                 </div>
               </div>
               <div class="project-content">
-                <p class="project-type">Cross-platform · Qt 6 / QML</p>
+                <p class="project-type">Cross-platform · Qt 6 / QML · C++</p>
                 <h3>WLDU App</h3>
                 <p>
-                  University management platform for Windows and Android:
-                  schedules, courses, announcements, offline-first SQLite sync,
-                  self-update, and operator upload tools. Gone under
-                  institutional review at Woldia University.
+                  Solo, end-to-end university management application for Windows
+                  and Android (x86/x64, ARMv7/ARMv8). Students get schedules,
+                  courses, materials, announcements, profiles, and offline use
+                  on one app — no public store; distribution and updates run
+                  through a managed channel (t.me/WLDUAPP). Stack: Qt 6 Quick /
+                  QML UI, C++ logic, SQLite local store, hash-based selective
+                  sync from GitHub-hosted data, signed self-update, and an
+                  instructor upload tool. Layered architecture separates
+                  presentation, synchronization, data access, and profile
+                  management so content can refresh without reinstall. About a
+                  year of demonstration use in the ECE department (I managed
+                  data and schedules); informal use in Mechanical Engineering.
+                  No institutional adoption yet — built to prove the product
+                  under real campus constraints.
                 </p>
                 <div class="project-links">
                   <a
@@ -405,12 +535,24 @@
                 <p class="project-type">Capstone · Full-stack + edge</p>
                 <h3>Smart Digital Signage System</h3>
                 <p>
-                  Campus display network with a modern web stack — Node.js,
-                  Express, Prisma, PostgreSQL, React/TypeScript, Socket.IO —
-                  plus Raspberry Pi edge nodes, PIR and ambient-light sensing,
-                  Docker/Nginx deployment path, and rollout design for ~130
-                  displays. Prototype validated; knowledge transferred to
-                  university IT.
+                  B.Sc. graduation project: replace paper notices and
+                  disconnected screens with a centrally managed campus display
+                  network. Staff publish announcements, images, video, and
+                  slides to selected locations; administrators monitor devices
+                  and configure behavior. I designed the architecture,
+                  workflows, and requirements — device registry, heartbeats,
+                  offline queues, RBAC, scheduling, emergency messaging — and
+                  directed AI agents to implement the web stack (Node.js,
+                  Express, Prisma, PostgreSQL, React/TypeScript, Socket.IO),
+                  then reviewed, integrated, tested, and debugged the system.
+                  Edge side: PIR motion and ambient-light sensing with automatic
+                  brightness. Demonstrated with an Arduino for sensors and a
+                  laptop booting a Debian live image standing in for Raspberry
+                  Pi — no real Pi hardware in the demo. The ~130-display campus
+                  plan is a deployment design, not a deployment. Documentation
+                  and knowledge transferred to university IT. Honest scope: web
+                  stack is project-level via directed AI work; C++/Qt/systems
+                  remain my core mastery.
                 </p>
                 <div class="project-links">
                   <a
@@ -452,12 +594,25 @@
                 <p class="project-type">Embedded · LoRa · INSA 2026</p>
                 <h3>SLF-EWN — Landslide / Flood Early-Warning</h3>
                 <p>
-                  Buried ATmega328P nodes stream CRC-protected moisture and tilt
-                  data through soil via SX1278 LoRa to a tower with SPI-flash
-                  logging and a Qt/QML telemetry dashboard. Low-power design.
-                  Multi-year battery and through-soil range are
-                  <strong style="color: var(--text)">design targets</strong>,
-                  not yet field-validated measurements.
+                  End-to-end embedded monitoring system developed as Group 1
+                  lead at the INSA National Cyber Talent Summer Camp. Goal:
+                  detect rising subsurface moisture and ground movement before
+                  slope failure — sensing near the hazard, communicating without
+                  buried cables. Buried ATmega328P nodes wake from low-power
+                  sleep, power sensors only while measuring (capacitive moisture
+                  + LIS3DH tilt), pack CRC-protected 12-byte frames, and send
+                  them through roughly one metre of soil via SX1278 / Ra-02 LoRa
+                  to a surface tower. The tower validates frames, stores 16-byte
+                  records in W25Q64 SPI flash (continues logging when the PC is
+                  offline), and serves data to a Qt 6 / QML desktop dashboard
+                  over USB-UART. Production firmware is kept separate from
+                  Proteus fake-device firmware so the shared protocol is tested
+                  end-to-end before fabrication. One-layer through-hole PCB
+                  designs; 3–7 year battery life on Li-SOCl2 is a
+                  <strong style="color: var(--text)">design target</strong>.
+                  Status: simulation-stage (working code, design, dashboard,
+                  demo video) — no hardware fabricated yet; Phase II still
+                  running.
                 </p>
                 <div class="project-links">
                   <a
@@ -484,12 +639,23 @@
                 </div>
               </div>
               <div class="project-content">
-                <p class="project-type">Browser · Manifest V3</p>
+                <p class="project-type">Browser · Manifest V3 · JavaScript</p>
                 <h3>Browser Automation Extension</h3>
                 <p>
-                  Chrome extension using MutationObserver-based DOM monitoring
-                  and service-worker coordination to trigger actions in dynamic,
-                  frame-based interfaces.
+                  Manifest V3 Chrome extension built with JavaScript and esbuild
+                  for monitoring dynamic, frame-based web interfaces and
+                  triggering configured actions when target elements appear. Uses
+                  MutationObserver on a configured container, content scripts
+                  coordinated by a background service worker, frame monitoring,
+                  and per-tab toolbar status (active / stopped / disconnected).
+                  Marks processed elements to avoid duplicates and stops cleanly
+                  when the target interface is removed. Built for real
+                  operational use — and for several years after family support
+                  ended it became the main source of income that funded a
+                  laptop, phone, living costs, and continued education. That
+                  market later closed in Ethiopia; the product remains a clear
+                  example of shipping a useful tool under constraint and turning
+                  technical skill into independence.
                 </p>
               </div>
             </article>
@@ -523,9 +689,15 @@
                 <p class="project-type">Hardware under constraint</p>
                 <h3>Improvised Power Generator</h3>
                 <p>
-                  Hand-powered generator from scavenged components during
-                  conflict-related blackouts — enough for emergency charging and
-                  lighting when the grid was gone.
+                  Hand-powered electromagnetic generator built during
+                  conflict-related blackouts when electricity, networks, and
+                  even water were cut for extended periods. Assembled from
+                  scavenged consumer parts — fan windings, printer magnets,
+                  gears — to deliver roughly 20–30 W peak for emergency phone
+                  charging and lighting. Not a lab hobby piece: a practical
+                  response when the grid was gone and devices still mattered.
+                  Proof of the same improvisation and persistence that run
+                  through the rest of the work.
                 </p>
               </div>
             </article>
@@ -544,35 +716,34 @@
             <article class="skill-group">
               <h3>Core strengths</h3>
               <div class="skills-list">
-                <span>C++ (DSA, concurrency, architecture)</span>
+                <span>C++ (OOP, DSA, concurrency, architecture)</span>
+                <span>C</span>
                 <span>Qt 6 / QML (desktop + mobile)</span>
+                <span>SQL (SQLite, MySQL — schema, joins, indexing)</span>
                 <span>Linux / Bash / Neovim / tmux</span>
-                <span>Git (Pro Git)</span>
+                <span>Git · CMake</span>
                 <span>Boost.Asio / socket programming</span>
-                <span>Software architecture</span>
-                <span>SQL (SQLite, MySQL)</span>
               </div>
             </article>
             <article class="skill-group">
               <h3>Embedded &amp; systems</h3>
               <div class="skills-list">
-                <span>ATmega328P / AVR-GCC</span>
+                <span>ATmega328P / AVR-GCC · bare-metal C</span>
+                <span>STM32 (ARM Cortex-M)</span>
                 <span>LoRa (SX1278)</span>
-                <span>SPI / UART / sensors</span>
-                <span>Raspberry Pi</span>
-                <span>Proteus / EasyEDA</span>
-                <span>Low-power design</span>
+                <span>SPI / UART / I2C · sensors</span>
+                <span>Low-power design (sleep, watchdog)</span>
+                <span>Proteus · EasyEDA / PCB</span>
               </div>
             </article>
             <article class="skill-group">
-              <h3>Web (project experience)</h3>
+              <h3>Web (project-level, AI-assisted)</h3>
               <div class="skills-list">
                 <span>Node.js / Express</span>
                 <span>React / TypeScript</span>
                 <span>Prisma / PostgreSQL</span>
                 <span>Socket.IO</span>
                 <span>Docker / Nginx</span>
-                <span>JavaScript / SQL</span>
               </div>
             </article>
             <article class="skill-group">
@@ -580,15 +751,15 @@
               <div class="skills-list">
                 <span>Python</span>
                 <span>Java</span>
-                <span>C</span>
-                <span>Manifest V3 extensions</span>
+                <span>JavaScript / Manifest V3</span>
+                <span>Local LLM (llama-server)</span>
               </div>
             </article>
             <article class="skill-group">
               <h3>Networking &amp; other</h3>
               <div class="skills-list">
-                <span>TCP/IP · VLANs</span>
-                <span>Fiber / CCTV exposure</span>
+                <span>TCP/IP · UDP · VLANs</span>
+                <span>Fiber / CCTV / IPsec / TLS</span>
                 <span>CMake</span>
                 <span>AI-assisted coding</span>
                 <span>Local Llama hosting (growing)</span>
@@ -611,10 +782,15 @@
               Focus)
             </h3>
             <p>
-              Graduated June 25, 2026. National Exit Exam 81.25%. Coursework
-              includes embedded systems, robotics, AI, DSP, control, electronics
-              labs, networks, and software engineering —
-              <strong style="color: var(--text)">no grade below A-</strong>.
+              Graduated June 25, 2026. National Exit Examination 81.25%. Across
+              66 graded courses:
+              <strong style="color: var(--text)">no grade below A-</strong>
+              (37 A+, 20 A, 9 A-). Coursework spans embedded systems,
+              microcomputers and interfacing, digital logic, applied electronics,
+              DSP, VLSI, control, robotics, AI, operating systems, software
+              engineering, database systems, computer networks, and more — the
+              full computer-engineering track with strong electronics depth.
+              Capstone: Smart Digital Signage System.
             </p>
             <div class="education-metrics">
               <span><strong>3.97/4.00</strong> CGPA</span>
@@ -628,9 +804,11 @@
             <div>
               <h3>University First Cup — 2026</h3>
               <p>
-                Recognized as batch valedictorian at Woldia University’s
-                graduation — highest cumulative performance across graduating
-                departments.
+                Campus-wide premier trophy for the highest cumulative score
+                (CGPA 3.97/4.00) across all graduating departments in the batch —
+                not only within Electrical and Computer Engineering. School
+                Topper Gold Medal for #1 in the department; Dean’s List (Unique
+                Binder Award) for sustained excellence with no grade below A-.
               </p>
               <div class="award-highlights">
                 <span>1st cup</span>
@@ -883,6 +1061,21 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
+        // Theme toggle
+        const root = document.documentElement;
+        const toggle = document.querySelector(".theme-toggle");
+        if (toggle) {
+          toggle.addEventListener("click", () => {
+            const next =
+              root.getAttribute("data-theme") === "light" ? "dark" : "light";
+            root.setAttribute("data-theme", next);
+            try {
+              localStorage.setItem("theme", next);
+            } catch (e) {}
+          });
+        }
+
+        // Project media galleries
         document
           .querySelectorAll(".project-media-wrapper")
           .forEach((gallery) => {
