@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Dawit Berhan — Software & Systems Engineer. B.Sc. ECE (Computer Engineering Focus), CGPA 3.97, Batch Valedictorian. C++, Qt/QML, embedded systems, Linux, full-stack signage product."
+      content="Dawit Berhan — Software & Systems Engineer. B.Sc. ECE (Computer Engineering Focus), CGPA 3.97, University Batch First Cup. C++, Qt/QML, embedded systems, Linux, full-stack signage product."
     />
     <meta name="author" content="Dawit Berhan" />
     <title>Dawit Berhan | Software & Systems Engineer</title>
@@ -95,7 +95,7 @@
               B.Sc. Electrical &amp; Computer Engineering (Computer Engineering
               focus) —
               <strong style="color: var(--text)">CGPA 3.97</strong>,
-              <strong style="color: var(--text)">Batch Valedictorian</strong>,
+              <strong style="color: var(--text)">University First Cup</strong>,
               School Topper. About seven years of continuous C++ practice; deep
               in Qt/QML, Linux, networking, SQL, and embedded systems.
               Fundamentals-first engineer: I design architecture, implement
@@ -782,8 +782,10 @@
               Focus)
             </h3>
             <p>
-              Graduated June 25, 2026. National Exit Examination 81.25%. Across
-              66 graded courses:
+              Graduated
+              <strong style="color: var(--text)">June 25, 2026</strong>
+              <span id="grad-ago" class="grad-ago"></span>. National Exit
+              Examination 81.25%. Across 66 graded courses:
               <strong style="color: var(--text)">no grade below A-</strong>
               (37 A+, 20 A, 9 A-). Coursework spans embedded systems,
               microcomputers and interfacing, digital logic, applied electronics,
@@ -795,7 +797,7 @@
             <div class="education-metrics">
               <span><strong>3.97/4.00</strong> CGPA</span>
               <span>37 A+ · 20 A · 9 A-</span>
-              <span>Batch Valedictorian</span>
+              <span>University First Cup</span>
               <span>School Topper Gold Medal</span>
               <span>Dean’s List</span>
             </div>
@@ -878,6 +880,19 @@
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <!-- Quote -->
+      <section class="quote-section" aria-label="Personal motto">
+        <div class="container">
+          <blockquote class="site-quote">
+            <p>
+              Capability follows environment — put me among strong peers and
+              high standards, and I rise to meet them.
+            </p>
+            <footer>— Dawit Berhan</footer>
+          </blockquote>
         </div>
       </section>
 
@@ -1073,6 +1088,32 @@
               localStorage.setItem("theme", next);
             } catch (e) {}
           });
+        }
+
+        // Time since graduation (June 25, 2026)
+        const gradAgo = document.getElementById("grad-ago");
+        if (gradAgo) {
+          const graduated = new Date(2026, 5, 25); // month is 0-indexed
+          const now = new Date();
+          let years = now.getFullYear() - graduated.getFullYear();
+          let months = now.getMonth() - graduated.getMonth();
+          let days = now.getDate() - graduated.getDate();
+          if (days < 0) months -= 1;
+          if (months < 0) {
+            years -= 1;
+            months += 12;
+          }
+          let label = "";
+          if (years <= 0 && months <= 0) {
+            label = days <= 0 ? "(just graduated)" : `(${days} day${days === 1 ? "" : "s"} ago)`;
+          } else if (years <= 0) {
+            label = `(${months} month${months === 1 ? "" : "s"} ago)`;
+          } else if (months === 0) {
+            label = `(${years} year${years === 1 ? "" : "s"} ago)`;
+          } else {
+            label = `(${years} year${years === 1 ? "" : "s"}, ${months} month${months === 1 ? "" : "s"} ago)`;
+          }
+          gradAgo.textContent = " " + label;
         }
 
         // Project media galleries
